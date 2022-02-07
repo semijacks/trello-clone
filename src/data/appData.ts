@@ -18,4 +18,5 @@ export const appData: AppState = {
       tasks: [{ id: 'c3', text: 'Begin to use static typing' }],
     },
   ],
+  draggedItem: undefined,
 };
