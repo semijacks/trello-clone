@@ -59,11 +59,11 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
       };
     }
     case 'ADD_TASK': {
-      const targetLaneIndex = findItemIndexById(
+      const targetListIndex = findItemIndexById(
         state.lists,
         action.payload.taskId
       );
-      state.lists[targetLaneIndex].tasks.push({
+      state.lists[targetListIndex].tasks.push({
         id: uuidv4(),
         text: action.payload.text,
       });

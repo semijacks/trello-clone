@@ -6,6 +6,7 @@ import { Card } from '../components/Card';
 import { useItemDrag } from '../hooks/useItemDrag';
 import { DragItem } from '../utils/dragItem';
 import { useDrop } from 'react-dnd';
+import { isHidden } from '../utils/isHidden';
 
 interface ColumnProps {
   text: string;
@@ -37,7 +38,10 @@ export const Column = ({ text, index, id }: ColumnProps) => {
   drag(drop(ref));
 
   return (
-    <ColumnContainer ref={ref}>
+    <ColumnContainer
+      ref={ref}
+      isHidden={isHidden(state.draggedItem, 'COLUMN', id)}
+    >
       <ColumnTitle>{text}</ColumnTitle>
       {state.lists[index].tasks.map((task) => (
         <Card text={task.text} key={task.id} />
